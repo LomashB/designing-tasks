@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Check,
-  History,
-  Search,
-  Settings,
-  User,
-} from "lucide-react";
+import { Check, History, Search, Settings, User } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { FloatingInput } from "./components/FloatingInput";
@@ -34,8 +28,8 @@ const boards = [
 export default function AccountSettings() {
   return (
     <div className="flex min-h-screen bg-white">
-      {/* Sidebar - Make it fixed height with independent scroll */}
-      <div className="w-[280px] border-r border-gray-200 bg-white flex flex-col h-screen">
+      {/* Sidebar */}
+      <div className="w-[280px] hidden md:block border-r border-gray-200 bg-white flex flex-col h-screen">
         {/* Fixed Header */}
         <div className="flex h-16 items-center gap-2 border-b border-gray-200 px-4 flex-shrink-0">
           <Image
@@ -86,6 +80,21 @@ export default function AccountSettings() {
                   key={index}
                   className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm text-gray-600 hover:bg-gray-100"
                 >
+                  {index < 3 ? (
+                    <Image
+                      src={"/assets/Web Button 4.png"}
+                      width={12}
+                      height={12}
+                      alt="Icon for less than 3"
+                    />
+                  ) : (
+                    <Image
+                      src={"/assets/Frame 79.png"}
+                      width={12}
+                      height={12}
+                      alt="Icon for 3 or greater"
+                    />
+                  )}
                   {board}
                 </button>
               ))}
@@ -118,9 +127,14 @@ export default function AccountSettings() {
         <div className="mx-auto max-w-4xl px-6 py-6">
           {/* Premium Account Banner */}
           <div className="mb-8 rounded-lg bg-emerald-600 p-6 text-white">
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col md:flex-row items-center gap-4">
               <div className="rounded-full bg-white/20 p-1">
-                <Image src="/assets/Frame25046.png" width={150} height={150} alt="briefcase" />
+                <Image
+                  src="/assets/Frame25046.png"
+                  width={150}
+                  height={150}
+                  alt="briefcase"
+                />
               </div>
               <div>
                 <h1 className="text-xl font-semibold">Premium Account</h1>
@@ -138,7 +152,7 @@ export default function AccountSettings() {
           {/* Personal Information Form */}
           <div className="relative rounded-lg bg-white px-2 py-4">
             <div className="flex gap-8">
-              {/* Form Section - 85% width */}
+              {/* Form Section  */}
               <div className="w-[85%]">
                 <h2 className="mb-8 text-2xl font-semibold text-gray-900">
                   Personal Information
@@ -172,7 +186,6 @@ export default function AccountSettings() {
                   </div>
                 </div>
 
-                {/* Email notification text */}
                 <p className="mt-6 text-sm text-gray-600">
                   Use this email to log in to your{" "}
                   <Link href="#" className="text-blue-500 hover:underline">
@@ -181,23 +194,18 @@ export default function AccountSettings() {
                   account and receive notifications.
                 </p>
 
-                {/* Save Button */}
                 <button className="mt-6 rounded-md bg-blue-500 px-8 py-2.5 text-sm font-medium text-white hover:bg-blue-600">
                   Save
                 </button>
 
-                {/* Checkbox */}
                 <div className="mt-6">
                   <label className="flex items-center gap-2 text-sm text-gray-600">
                     <input
                       type="checkbox"
                       className="rounded border-gray-300"
                     />
-                    Show my profile to serious employers on{" "}
-                    <Link href="#" className="text-blue-500 hover:underline">
-                      hirethebest.io
-                    </Link>{" "}
-                    for free
+                    Show my profile to serious employers on                   <Link href="#" className="text-blue-500 hover:underline">
+                    hirethebest.io </Link> for free
                   </label>
                 </div>
               </div>
@@ -206,13 +214,12 @@ export default function AccountSettings() {
               <div className="w-[15%] mt-12">
                 <div className="relative">
                   <Image
-                    src="/assets/carls-img.png"
+                    src="/assets/Ellipse 12.png"
                     alt="Profile"
                     width={120}
                     height={120}
                     className="rounded-full border-4 border-white shadow-lg"
                   />
-                  {/* Camera/edit button overlay */}
                   <button
                     className="absolute bottom-1 right-1 rounded-full bg-white p-2 shadow-md hover:bg-gray-50"
                     aria-label="Edit profile picture"
