@@ -28,8 +28,9 @@ const boards = [
 export default function AccountSettings() {
   return (
     <div className="flex min-h-screen bg-white">
+
       {/* Sidebar */}
-      <div className="w-[280px] hidden md:block border-r border-gray-200 bg-white flex flex-col h-screen">
+      <div className="w-[280px] hidden md:flex border-r overflow-y-auto border-gray-200 bg-white  flex-col h-screen">
         {/* Fixed Header */}
         <div className="flex h-16 items-center gap-2 border-b border-gray-200 px-4 flex-shrink-0">
           <Image
@@ -194,20 +195,25 @@ export default function AccountSettings() {
                   account and receive notifications.
                 </p>
 
-                <button className="mt-6 rounded-md bg-blue-500 px-8 py-2.5 text-sm font-medium text-white hover:bg-blue-600">
-                  Save
-                </button>
-
                 <div className="mt-6">
                   <label className="flex items-center gap-2 text-sm text-gray-600">
                     <input
                       type="checkbox"
                       className="rounded border-gray-300"
                     />
-                    Show my profile to serious employers on                   <Link href="#" className="text-blue-500 hover:underline">
-                    hirethebest.io </Link> for free
+                    Show my profile to serious employers on{" "}
+                    <Link href="#" className="text-blue-500 hover:underline">
+                      hirethebest.io{" "}
+                    </Link>{" "}
+                    for free
                   </label>
                 </div>
+                
+                <button className="mt-6 rounded-md bg-blue-500 px-8 py-2.5 text-sm font-medium text-white hover:bg-blue-600">
+                  Save
+                </button>
+
+
               </div>
 
               {/* Profile Picture Section */}
@@ -304,6 +310,7 @@ export default function AccountSettings() {
           </div>
         </div>
       </div>
+
     </div>
   );
 }
